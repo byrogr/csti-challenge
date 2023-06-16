@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: redis:6.2-alpine
+    container_name: csti-redis
+    ports:
+      - 6379:6379
+  api:
+    depends_on:
+      - db
+    build: .
+    container_name: csti-api
+    ports:
+      - 8000:8000
+    environment:
+      REDIS_HOST: db
+    restart: always
