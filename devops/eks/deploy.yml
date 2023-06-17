@@ -19,3 +19,7 @@ spec:
           image: 228159236951.dkr.ecr.sa-east-1.amazonaws.com/csti-tokenizacion:latest
           ports:
             - containerPort: 8000
+        - name: csto-redis
+          image: redis:6.2-alpine
+          ports:
+            - containerPort: 6379
